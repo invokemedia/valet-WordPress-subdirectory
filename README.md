@@ -10,7 +10,7 @@ Make sure your WordPress code is in the root directory of your site and is calle
 
 You can set the sub directory in the constructor function of the class code, rather than the sub directory needing to be `wordpress/`.
 
-All you need to do is change the value of `$this->subfolder = 'public';` to something else. Note the *missing trailing slash*.**
+All you need to do is change the value of `$this->subfolder = 'public';` to something else. Note the **missing trailing slash**.
 
 ### Installation
 
