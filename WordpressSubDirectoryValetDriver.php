@@ -13,9 +13,14 @@ class WordpressSubDirectoryValetDriver extends BasicValetDriver
      * @param  string  $uri
      * @return bool
      */
+    public function __construct() {
+        $this->subfolder = 'wordpress';
+    }
+
+
     public function serves($sitePath, $siteName, $uri)
     {
-        return is_dir($sitePath . '/wordpress/wp-admin');
+        return is_dir($sitePath . '/' . $this->subfolder . '/wp-admin');
     }
 
     /**
@@ -37,7 +42,7 @@ class WordpressSubDirectoryValetDriver extends BasicValetDriver
         $paths = ['wp-admin', 'wp-includes', 'wp-login'];
         foreach ($paths as $path) {
             if (false !== ($pos = stripos($uri, '/' . $path))) {
-                $uri = '/wordpress' . substr( $uri, $pos );
+                $uri = '/' . $this->subfolder . substr( $uri, $pos );
             }
         }
 
@@ -51,7 +56,7 @@ class WordpressSubDirectoryValetDriver extends BasicValetDriver
         $paths = ['wp-admin/css', 'wp-includes'];
         foreach ($paths as $path) {
             if (false !== ($pos = stripos($uri, '/' . $path))) {
-                $new_uri = '/wordpress' . substr($uri, $pos);
+                $new_uri = '/' . $this->subfolder . substr($uri, $pos);
                 if (file_exists($sitePath . $new_uri)) {
                     return $sitePath . $new_uri;
                 }
