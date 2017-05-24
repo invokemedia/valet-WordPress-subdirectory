@@ -14,7 +14,7 @@ class WordpressSubDirectoryValetDriver extends BasicValetDriver
      * @return bool
      */
     public function __construct() {
-        $this->subfolder = 'public';
+        $this->subfolder = 'wordpress';
     }
 
 
